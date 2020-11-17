@@ -1,0 +1,8 @@
+{
+  "app": {
+    "title": "Aplicação simples em Vue 3",
+    "screens": {
+      "home": "Início"
+    }
+  }
+}

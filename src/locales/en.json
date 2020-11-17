@@ -1,0 +1,8 @@
+{
+  "app": {
+    "title": "Vue 3 Simple App",
+    "screens": {
+      "home": "Home"
+    }
+  }
+}

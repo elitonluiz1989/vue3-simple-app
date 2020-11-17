@@ -1,10 +1,21 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-  </div>
-  <router-view/>
+  <app-header />
+
+  <router-view />
 </template>
 
+<script lang="ts">
+  import { defineComponent } from "vue";
+  import AppHeader from "./components/layout/AppHeader.vue";
+
+  export default defineComponent({
+    name: "App",
+    components: {
+      AppHeader,
+    },
+  });
+</script>
+
 <style lang="scss">
-  @import url('assets/scss/app.scss');
+@import "./assets/scss/app.scss";
 </style>
