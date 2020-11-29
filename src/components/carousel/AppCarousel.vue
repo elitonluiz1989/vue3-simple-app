@@ -1,14 +1,14 @@
 <template>
   <div :class="styles.default">
     <app-carousel-arrow
-      size="2x"
+      :size="icons.size"
       direction="left"
       @arrow-click="previous()"
       v-show="showArrows"/>
 
 <div class="flex-fill">
     <div
-      :class="styles.container"
+      :class="containerStyles"
       ref="containerElement">        
         <slot />
     </div>
@@ -22,7 +22,7 @@
       </div>
     
     <app-carousel-arrow
-      size="2x"
+      :size="icons.size"
       direction="right"
       @arrow-click="next()"
       v-show="showArrows"/>
@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref} from 'vue';
+import { computed, defineComponent, onMounted, ref} from 'vue';
 import AppCarouselArrow from './AppCarouselArrow.vue';
 import AppCarouselIndicators from './AppCarouselIndicators.vue';
 
@@ -58,12 +58,18 @@ export default defineComponent({
   setup(props) {
     const styles = {
       default: 'carousel d-flex',
-      container: [
-        'carousel_container',
-        'flex-fill',
-        'position-relative'
-      ]
-    }
+      container: {
+        default: [
+          'carousel_container',
+          'flex-fill',
+          'position-relative'
+        ],
+        hasIndicators: 'carousel_container--has-indicators'
+      }
+    };
+    const icons = {
+      size: '2x'
+    };
     const containerElement = ref<HTMLDivElement>();
     const selectedItem = ref(0);    
     const numItems = ref(0);
@@ -114,9 +120,17 @@ export default defineComponent({
       }
     });
 
+    // Computed
+    const containerStyles = computed((): string[] => {
+      return props.showIndicators ? 
+        [styles.container.hasIndicators, ...styles.container.default] :
+        styles.container.default;
+    });
+
     return {
       // Settings
       styles,
+      icons,
       // Refs
       containerElement,
       // General vars
@@ -125,7 +139,9 @@ export default defineComponent({
       // methods
       setSelectedItem,
       previous,
-      next
+      next,
+      // computed
+      containerStyles
     }
   }
 })
@@ -142,10 +158,10 @@ export default defineComponent({
       margin: 0;
       padding: 0.9rem 0;
       overflow: hidden;
-    }
 
-    &_indicators {
-      margin-top: -0.9rem;
+      &--has-indicators {
+        padding-bottom: 0;
+      }
     }
   }
 </style>
