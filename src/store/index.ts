@@ -1,12 +1,10 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
-export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+import {photos} from '@/store/modules/photos';
+import { RootState } from './interfaces';
+
+export default createStore<RootState>({
   modules: {
+    photos
   }
-})
+});

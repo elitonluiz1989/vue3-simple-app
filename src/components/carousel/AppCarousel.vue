@@ -6,20 +6,20 @@
       @arrow-click="previous()"
       v-show="showArrows"/>
 
-<div class="flex-fill">
-    <div
-      :class="containerStyles"
-      ref="containerElement">        
-        <slot />
-    </div>
-
-    <app-carousel-indicators
-      limit="15"
-      :quantity="numItems"
-      :selected="selectedItem"
-      @set-selected-item="setSelectedItem"
-      v-show="showIndicators" />
+    <div class="flex-fill">
+      <div
+        :class="containerStyles"
+        ref="containerElement">        
+          <slot />
       </div>
+
+      <app-carousel-indicators
+        limit="15"
+        :quantity="numItems"
+        :selected="selectedItem"
+        @set-selected-item="setSelectedItem"
+        v-show="showIndicators" />
+    </div>
     
     <app-carousel-arrow
       :size="icons.size"
@@ -57,12 +57,14 @@ export default defineComponent({
 
   setup(props) {
     const styles = {
-      default: 'carousel d-flex',
+      default: [
+        'carousel',
+        'd-flex'
+      ],
       container: {
         default: [
           'carousel_container',
-          'flex-fill',
-          'position-relative'
+          'w-100'
         ],
         hasIndicators: 'carousel_container--has-indicators'
       }
