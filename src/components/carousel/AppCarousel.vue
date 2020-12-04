@@ -49,6 +49,16 @@ export default defineComponent({
       default: false,
     },
 
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+
+    autoplaySpeed: {
+      type: Number,
+      default: 5
+    },
+
     defaultSelected: {
       type: String,
       default: 'start'
@@ -119,6 +129,12 @@ export default defineComponent({
         numItems.value = items.length;
 
         setDefaultSelected();
+      }
+
+      if (props.autoplay) {
+        setInterval(() => {
+          next();
+        }, props.autoplaySpeed * 1000);
       }
     });
 
