@@ -26,7 +26,7 @@
 <script>
 import { defineComponent } from "vue";
 
-import { useTranslate } from '@/hooks/useTranslate';
+import { useLocalizedText } from '@/hooks/useTranslator';
 
 import AppNav from "./AppNav.vue";
 
@@ -39,7 +39,7 @@ export default defineComponent({
 
   setup() {
     const headerContent = {
-      title: useTranslate('app.title')
+      title: useLocalizedText('app.title')
     };
 
     return {

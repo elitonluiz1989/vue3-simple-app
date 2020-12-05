@@ -1,13 +1,13 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
-import { useTranslate } from '@/hooks/useTranslate';
+import { useLocalizedText } from '@/hooks/useTranslator';
 
 import Home from '../views/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: useTranslate('app.screens.home'),
+    name: useLocalizedText('app.screens.home'),
     component: Home
   }
 ]

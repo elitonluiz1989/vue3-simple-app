@@ -1,9 +1,6 @@
 import { Indexable } from '@/types';
 
-import en from '@/locales/en.json';
-import ptBR from '@/locales/pt-BR.json';
-
-export interface Locale {
+export interface TranslatorLocale {
   locale: string;
   content: object;
 }
@@ -11,35 +8,60 @@ export interface Locale {
 export default class Translator {
   static default = 'en';
 
-  static locales: Locale[] = [
-    {locale: 'en', content: en},
-    {locale: 'pt-BR', content: ptBR},
-  ];
+  private static locales: TranslatorLocale[];
 
-  private static currentLocale: Locale;
+  private static currentLocale: TranslatorLocale;
 
-  static set(locale: string) {
-    const search = this.locales.filter(l => l.locale == locale);
-
-    this.currentLocale = (search.length > 0) ? 
-      search[0] : 
-      this.locales.filter(l => l.locale == this.default)[0];
+  static setLocales(locales: TranslatorLocale[]) {
+    this.locales = locales;
   }
 
-  static get(): Locale {
+  static setLocale(locale: string) {
+    if (this.locales) {
+      const search = this.locales.filter(l => l.locale == locale);
+
+      this.currentLocale = (search.length > 0) ? 
+        search[0] : 
+        this.locales.filter(l => l.locale == this.default)[0];
+    }
+  }
+
+  static getLocale(): TranslatorLocale {
     if (!this.currentLocale) {
-      this.set(this.default);
+      this.setLocale(this.default);
     }
 
     return this.currentLocale;
   }
 
-  static message(key: string): string {
-    const locale = this.get();
-    const messases = locale.content as Indexable;
-    const keys = key.split('.');
+  static text(key: string, replacements: object = {}): string {
+    const locale = this.getLocale();
+    let returnedText = `{${key}}`;
 
-    return this.contentIterator(messases, keys)
+    if (locale) {
+      const messases = locale.content as Indexable;
+      const keys = key.split('.');
+      const message: string =  this.contentIterator(messases, keys);
+
+      if (message) {
+        returnedText = message;
+
+        if (Object.keys(replacements).length > 0) {
+          let replacement = null;
+
+          for (const [key, value] of Object.entries(replacements)) {
+            replacement = new RegExp(`:${key}`, 'g');
+            returnedText = returnedText.replaceAll(replacement, value);
+          }
+        }
+      }
+    }
+
+    return returnedText;
+  }
+
+  static date(date: string) {
+    return new Date(date + ' 00:00:00').toLocaleDateString();
   }
 
   private static contentIterator(content: Indexable, keys: string[]): string {
