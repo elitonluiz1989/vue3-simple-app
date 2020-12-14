@@ -7,7 +7,6 @@ export default [
   { "src": "https://images.freeimages.com/images/small-previews/cd8/bright-red-sunset-1446856.jpg", "description": "Pôr do sol vermelho brilhante", "width": 268.4563758389262, "height": 200 },
   { "src": "https://images.freeimages.com/images/small-previews/8a1/small-waterfall-1376352.jpg", "description": "pequena cachoeira", "width": 266.6666666666667, "height": 200 },
   { "src": "https://images.freeimages.com/images/small-previews/0db/tropical-bird-1390996.jpg", "description": "Pássaro tropical", "width": 300.7518796992481, "height": 200 },
-  { "src": "https://images.freeimages.com/images/small-previews/101/lisa-1435408.jpg", "description": "", "width": 266.6666666666667, "height": 200 },
   { "src": "https://images.freeimages.com/images/small-previews/b85/bay-lrt-station-1626400.jpg", "description": "Estação de LRT Baía", "width": 266.6666666666667, "height": 200 },
   { "src": "https://images.freeimages.com/images/small-previews/901/butterfly-dress-1520606.jpg", "description": "Vestido de borboleta", "width": 300.7518796992481, "height": 200 },
   { "src": "https://images.freeimages.com/images/small-previews/f37/cloudy-scotland-1392088.jpg", "description": "Nublado-Escócia", "width": 266.6666666666667, "height": 200 },

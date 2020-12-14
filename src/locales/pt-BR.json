@@ -3,6 +3,19 @@
     "title": "Aplicação simples em Vue 3",
     "screens": {
       "home": "Início"
+    },
+    "article": {
+      "header": {
+        "footer": {
+          "written_info": "escrito por <strong>:author</strong> em :date às :time"
+        }
+      },
+      "footer": {
+        "btn": {
+          "show": "Ler mais",
+          "hide": "Ocultar"
+        }
+      }
     }
   }
 }

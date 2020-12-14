@@ -1,16 +1,16 @@
 import { Module } from 'vuex';
 
-import { PhotosState } from './interfaces';
+import { AboutState } from './interfaces';
 import { mutations } from './mutations';
 import { actions } from './actions';
 import { getters } from './getters';
 import { RootState } from '@/store/interfaces';
 
-const state: PhotosState = {
-  photos: []
+const state: AboutState = {
+  institutional: null
 }
 
-export const photos: Module<PhotosState, RootState> = {
+export const about: Module<AboutState, RootState> = {
   namespaced: true,
   state,
   mutations,

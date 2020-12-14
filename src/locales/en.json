@@ -3,6 +3,19 @@
     "title": "Vue 3 Simple App",
     "screens": {
       "home": "Home"
+    },
+    "article": {
+      "header": {
+        "footer": {
+          "written_info": "Written by <strong>:author</strong> in :date ate :time"
+        }
+      },
+      "footer": {
+        "btn": {
+          "show": "Read more",
+          "hide": "Hide"
+        }
+      }
     }
   }
 }
