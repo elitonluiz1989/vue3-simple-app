@@ -1,5 +1,11 @@
 <template>
   <div class="home container-fluid">
+    <next-activitie
+      :location="nextActivitie.location"
+      :description="nextActivitie.description"
+      :calendar="nextActivitie.calendar"
+      v-if="nextActivitie" />
+
     <app-carousel
       show-arrows
       show-indicators
@@ -30,6 +36,8 @@ import AppArticle from '@/components/article/AppArticle.vue';
 import Institutional from '@/entities/about/Institutional';
 import Photos from '@/entities/Photos';
 import { WrittenInfo } from '@/components/article/interfaces';
+import Activitie from '@/entities/activities/Activite';
+import NextActivitie from '@/components/activities/NextActivitie.vue';
 
 export default defineComponent({
   name: "HomeScreen",
@@ -37,18 +45,22 @@ export default defineComponent({
   components: {
     AppCarousel,
     AppCarouselItem,
-    AppArticle
+    AppArticle,
+    NextActivitie
   },
 
   setup() {
     const store = useStore();
 
     onMounted((): void => {
+      store.dispatch('activities/all');
+      store.dispatch('activities/nextActivitie');
       store.dispatch('about/intitutionalContent');
       store.dispatch('photos/all');
     });
 
     //computed
+    const nextActivitie = computed((): Activitie => store.getters['activities/nextActivitie']);
     const photos = computed((): Photos[] => store.getters['photos/all']);
     const institutionalContent = computed((): Institutional => store.getters['about/institutional']);
     const hasInstitutionalContent = computed(() => institutionalContent.value !== null);
@@ -63,6 +75,7 @@ export default defineComponent({
     });
 
     return {
+      nextActivitie,
       photos,
       institutionalContent,
       hasInstitutionalContent,

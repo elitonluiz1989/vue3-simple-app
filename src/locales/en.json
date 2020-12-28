@@ -17,5 +17,10 @@
         }
       }
     }
+  },
+  "activites": {
+    "next": {
+      "title": "Next Activitie" 
+    }
   }
 }
