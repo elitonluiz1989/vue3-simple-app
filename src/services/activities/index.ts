@@ -1,4 +1,4 @@
-import rawData from '@/data/activities';
+import rawData from '@/data/activities.ts';
 import Activitie from '@/entities/activities/Activite';
 
 const activitiesHandleData = (data: any): Activitie => {

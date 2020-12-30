@@ -1,4 +1,4 @@
-import photos from '@/data/common/photos';
+import photos from '@/data/photos.ts';
 
 export const PhotosSevice = {
   all() {
