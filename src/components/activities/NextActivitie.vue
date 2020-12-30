@@ -59,23 +59,23 @@ export default defineComponent({
 <style lang="scss" scoped>
   @import "@/assets/scss/variables";
 
+  $background-color: darken($primary-color, 12);
+
   .next-activitie {
     margin-bottom: 1rem;
+    background-color: $background-color;
     border-radius: 0.5rem;
     font-size: 0.8rem;
 
     &_message {
-      width: 40%;
-      padding: 0.15rem 0.25rem;
-      background-color: $dark-color;
-      border-radius: 0.25rem 0.25rem 0 0;
+      width: 100%;
+      padding: 0.15rem 0.5rem;
+      border-bottom: 1px dashed $primary-color;
       font-style: italic;
     }
 
     &_content {      
-      background-color: $dark-color;
       padding: 0.25rem 0.5rem;
-      border-radius: 0 0.25rem 0.25rem;
     }
 
     &_calendar {
