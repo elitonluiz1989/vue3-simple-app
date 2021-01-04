@@ -5,6 +5,7 @@ import { AboutService as service }  from '@/services/about';
 import Institutional from '@/entities/about/Institutional';
 import InstitutionalWritten from '@/entities/about/InstitutionalWritten';
 import AboutState from '@/entities/about/AboutState';
+import Contacts from '@/entities/about/Contacts';
 import RootState from '@/entities/RootState';
 
 import { useLocalizedDate } from '@/hooks/useTranslator';
@@ -25,5 +26,11 @@ export const actions: ActionTree<AboutState, RootState> = {
     const institutionalContent: Institutional = content;
 
     commit('setInstitutionalContent', institutionalContent);
+  },
+
+  contacts({ commit }) {
+    const contacts: Contacts = service.getContacts();
+
+    commit('setContacts', contacts);
   }
 }

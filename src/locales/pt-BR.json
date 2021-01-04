@@ -16,6 +16,14 @@
           "hide": "Ocultar"
         }
       }
+    },
+    "footer": {
+      "telephones": {
+        "title": "Telefones"
+      },
+      "emails": {
+        "title": "E-mails"
+      }
     }
   },
   "activities": {

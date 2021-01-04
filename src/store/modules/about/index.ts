@@ -8,7 +8,8 @@ import { actions } from './actions';
 import { getters } from './getters';
 
 const state: AboutState = {
-  institutional: null
+  institutional: null,
+  contacts: null
 };
 
 export const about: Module<AboutState, RootState> = {
