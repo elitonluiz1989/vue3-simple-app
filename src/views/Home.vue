@@ -30,14 +30,15 @@
 import { computed, defineComponent, onMounted } from 'vue';
 import { useStore } from 'vuex';
 
+import NextActivitie from '@/components/activities/NextActivitie.vue';
+import AppArticle from '@/components/article/AppArticle.vue';
 import AppCarousel from '@/components/carousel/AppCarousel.vue';
 import AppCarouselItem from '@/components/carousel/AppCarouselItem.vue';
-import AppArticle from '@/components/article/AppArticle.vue';
+
 import Institutional from '@/entities/about/Institutional';
-import Photos from '@/entities/Photos';
-import { WrittenInfo } from '@/components/article/interfaces';
 import Activitie from '@/entities/activities/Activite';
-import NextActivitie from '@/components/activities/NextActivitie.vue';
+import WrittenInfo from '@/entities/article/WrittenInfo';
+import Photos from '@/entities/Photos';
 
 export default defineComponent({
   name: "HomeScreen",

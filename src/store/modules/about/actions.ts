@@ -1,11 +1,12 @@
 import { ActionTree } from 'vuex';
 
 import { AboutService as service }  from '@/services/about';
-import { RootState } from '@/store/interfaces';
-import { AboutState } from './interfaces';
 
 import Institutional from '@/entities/about/Institutional';
 import InstitutionalWritten from '@/entities/about/InstitutionalWritten';
+import AboutState from '@/entities/about/AboutState';
+import RootState from '@/entities/RootState';
+
 import { useLocalizedDate } from '@/hooks/useTranslator';
 
 export const actions: ActionTree<AboutState, RootState> = {

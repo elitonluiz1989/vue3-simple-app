@@ -1,10 +1,10 @@
 import { ActionTree } from 'vuex';
 
 import { ActivitiesService as service }  from '@/services/activities';
-import { RootState } from '@/store/interfaces';
-import { ActivitiesState } from './interfaces';
 
 import Activitie from '@/entities/activities/Activite';
+import ActivitiesState from '@/entities/activities/ActivitiesState';
+import RootState from '@/entities/RootState';
 
 export const actions: ActionTree<ActivitiesState, RootState> = {
   all({ commit }) {

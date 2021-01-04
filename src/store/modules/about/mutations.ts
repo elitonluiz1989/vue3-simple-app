@@ -1,9 +1,10 @@
 import { MutationTree } from 'vuex';
 
-import { AboutState } from './interfaces';
+import AboutState from '@/entities/about/AboutState';
+import Institutional from '@/entities/about/Institutional';
 
 export const mutations: MutationTree<AboutState> = {
-  setInstitutionalContent(state, payload: any) {
+  setInstitutionalContent(state, payload: Institutional) {
     state.institutional = payload;
   }
 }

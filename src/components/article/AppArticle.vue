@@ -25,9 +25,9 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 
-import { useLocalizedText } from '@/hooks/useTranslator';
+import WrittenInfo from '@/entities/article/WrittenInfo';
 
-import { WrittenInfo } from './interfaces';
+import { useLocalizedText } from '@/hooks/useTranslator';
 
 export default defineComponent({
   name: 'AppArticle',

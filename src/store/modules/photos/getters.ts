@@ -1,7 +1,7 @@
 import { GetterTree } from 'vuex';
 
-import { RootState } from '@/store/interfaces';
-import { PhotosState } from "./interfaces";
+import PhotosState from '@/entities/photos/PhotosState';
+import RootState from '@/entities/RootState';
 
 export const getters: GetterTree<PhotosState, RootState> = {
   all: (state) => state.photos

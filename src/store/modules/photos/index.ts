@@ -1,10 +1,11 @@
 import { Module } from 'vuex';
 
-import { PhotosState } from './interfaces';
+import PhotosState from '@/entities/photos/PhotosState';
+import RootState from '@/entities/RootState';
+
 import { mutations } from './mutations';
 import { actions } from './actions';
 import { getters } from './getters';
-import { RootState } from '@/store/interfaces';
 
 const state: PhotosState = {
   photos: []

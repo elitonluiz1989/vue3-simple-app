@@ -1,7 +1,7 @@
-import Activitie from '@/entities/activities/Activite';
 import { MutationTree } from 'vuex';
 
-import { ActivitiesState } from './interfaces';
+import Activitie from '@/entities/activities/Activite';
+import ActivitiesState from '@/entities/activities/ActivitiesState';
 
 export const mutations: MutationTree<ActivitiesState> = {
   setActivities(state, payload: Activitie[]) {

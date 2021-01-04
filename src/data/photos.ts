@@ -45,5 +45,4 @@ export default [
   { "src": "https://images.freeimages.com/images/small-previews/b74/wild-poppies-1384853.jpg", "description": "Papoulas selvagens", "width": 266.6666666666667, "height": 200 },
   { "src": "https://images.freeimages.com/images/small-previews/39a/champagne-with-citron-1325320.jpg", "description": "champanhe com cidra", "width": 132.89036544850498, "height": 200 },
   { "src": "https://images.freeimages.com/images/small-previews/035/young-golden-retriever-1404848.jpg", "description": "Retriever dourado Young", "width": 300.7518796992481, "height": 200 },
-  { "src": "https://images.freeimages.com/images/small-previews/310/resting-peacefully-1574880.jpg", "description": "Descansando em paz", "width": 266.6666666666667, "height": 200 },
 ];

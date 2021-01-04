@@ -1,7 +1,7 @@
 import { GetterTree } from 'vuex';
 
-import { RootState } from '@/store/interfaces';
-import { ActivitiesState } from "./interfaces";
+import ActivitiesState from '@/entities/activities/ActivitiesState';
+import RootState from '@/entities/RootState';
 
 export const getters: GetterTree<ActivitiesState, RootState> = {
   activites: (state) => state.activities,

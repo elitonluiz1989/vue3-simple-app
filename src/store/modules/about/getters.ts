@@ -1,8 +1,9 @@
 import { GetterTree } from 'vuex';
 
-import { RootState } from '@/store/interfaces';
-import { AboutState } from "./interfaces";
+import AboutState from '@/entities/about/AboutState';
+import Institutional from '@/entities/about/Institutional';
+import RootState from '@/entities/RootState';
 
 export const getters: GetterTree<AboutState, RootState> = {
-  institutional: (state) => state.institutional
+  institutional: (state): Institutional|null => state.institutional,
 }

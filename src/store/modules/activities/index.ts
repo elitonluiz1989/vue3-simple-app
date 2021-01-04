@@ -1,10 +1,11 @@
 import { Module } from 'vuex';
 
-import { ActivitiesState } from './interfaces';
+import ActivitiesState from '@/entities/activities/ActivitiesState';
+import RootState from '@/entities/RootState';
+
 import { mutations } from './mutations';
 import { actions } from './actions';
 import { getters } from './getters';
-import { RootState } from '@/store/interfaces';
 
 const state: ActivitiesState = {
   activities: [],
