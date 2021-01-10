@@ -1,37 +1,17 @@
 <template>
-  <div :class="styles.default">
-    <div :class="styles.content">      
+  <div class="carousel_item d-flex justify-content-center align-items-center overflow-hidden">
+    <div class="carousel_item-content w-100">      
       <slot />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+  import { defineComponent } from 'vue';
 
-export default defineComponent({
-  name: 'AppCarouselItem',
-
-  setup() {
-    const styles = {
-      default: [
-        'carousel_item', 
-        'd-flex',
-        'justify-content-center',
-        'align-items-center', 
-        'overflow-hidden'
-      ],
-      content: [
-        'carousel_item-content',
-        'w-100'
-      ]
-    };
-
-    return {
-      styles
-    }
-  }
-})
+  export default defineComponent({
+    name: 'AppCarouselItem'
+  });
 </script>
 
 <style lang="scss" scoped>

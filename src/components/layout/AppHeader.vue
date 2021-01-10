@@ -24,27 +24,51 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+  import { defineComponent } from "vue";
 
-import { useLocalizedText } from '@/hooks/useTranslator';
+  import { useLocalizedText } from '@/hooks/useTranslator';
 
-import AppNav from "./AppNav.vue";
+  import AppNav from "./AppNav.vue";
 
-export default defineComponent({
-  name: "AppHeader",
+  export default defineComponent({
+    name: "AppHeader",
 
-  components: {
-    AppNav
-  },
+    components: {
+      AppNav
+    },
 
-  setup() {
-    const headerContent = {
-      title: useLocalizedText('app.title')
-    };
+    setup() {
+      const headerContent = {
+        title: useLocalizedText('app.title')
+      };
 
-    return {
-      headerContent
-    };
-  },
-});
+      return {
+        headerContent
+      };
+    },
+  });
 </script>
+
+<style lang="scss" scoped>
+  @import "@/assets/scss/variables";
+  
+  .header {
+    padding-top: 1rem;
+
+    &_logo {
+      width: 4rem;
+      height: 4rem;
+      overflow: hidden;
+    }
+
+    &_logo img {
+      box-shadow: 0 0 3px black;
+    }
+
+    &_title {
+      color: $secundary-color;
+      font-size: 1.5rem;
+      text-shadow: 0 0 2px black;
+    }
+  }
+</style>

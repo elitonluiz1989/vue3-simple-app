@@ -1,9 +1,6 @@
 {
   "app": {
     "title": "Aplicação simples em Vue 3",
-    "screens": {
-      "home": "Início"
-    },
     "article": {
       "header": {
         "footer": {
@@ -26,9 +23,8 @@
       }
     }
   },
-  "activities": {
-    "next": {
-      "title": "Próxima Atividade" 
-    }
+  "home": {
+    "title": "Início",
+    "route": "/"
   }
 }

@@ -1,6 +1,6 @@
 <template>
     <button
-      :class="styles.default"
+      class="carousel_arrow"
       @click="click()">
       <font-awesome-icon
         :icon="icon"
@@ -10,49 +10,43 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+  import { computed, defineComponent } from 'vue';
 
-export default defineComponent({
-  name: 'AppCarouselArrow',
+  export default defineComponent({
+    name: 'AppCarouselArrow',
 
-  props: {
-    type: {
-      type: String,
-      default: 'angle'
+    props: {
+      type: {
+        type: String,
+        default: 'angle'
+      },
+
+      direction: {
+        type: String,
+        required: true,
+      },
+      
+      size: {
+        type: String,
+        default: null
+      },
     },
 
-    direction: {
-      type: String,
-      required: true,
-    },
-    
-    size: {
-      type: String,
-      default: null
-    },
-  },
+    setup(props, { emit }) {
+      const click = () => {
+        emit('arrow-click');
+      }
 
-  setup(props, { emit }) {
-    const styles = {
-      default: 'carousel_arrow',
-    };
+      const icon = computed(() => `${props.type}-${props.direction}`);
 
-    const click = () => {
-      emit('arrow-click');
+      return {
+        // computed
+        icon,
+        // methods
+        click
+      }
     }
-
-    const icon = computed(() => `${props.type}-${props.direction}`);
-
-    return {
-      // settings
-      styles,
-      // computed
-      icon,
-      // methods
-      click
-    }
-  }
-})
+  });
 </script>
 
 <style lang="scss" scoped>

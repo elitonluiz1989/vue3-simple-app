@@ -13,70 +13,70 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+  import { computed, defineComponent } from 'vue';
 
-export default defineComponent({
-  name: 'AppCarousel',
+  export default defineComponent({
+    name: 'AppCarousel',
 
-  props: {
-    limit: {
-      type: Number,
-      default: 10,
-    },
+    props: {
+      limit: {
+        type: Number,
+        default: 10,
+      },
 
-    quantity: {
-      type: Number,
-      default: 0
-    },
+      quantity: {
+        type: Number,
+        default: 0
+      },
 
-    selected: {
-      type: Number,
-      default: 0
-    }
-  },
-
-  setup(props, { emit }) {    
-    const icons = {
-      indicator: 'circle'
-    }
-    const styles = {
-      default: [
-        'carousel_indicators',
-        'd-flex',
-        'justify-content-center',
-        'w-100'
-      ],
-      item: {
-        default: [
-          'carousel_indicators-item',
-          'h-100'
-        ],
-        selected: 'carousel_indicators-item--selected',
+      selected: {
+        type: Number,
+        default: 0
       }
-    };
+    },
 
-    const indicatorItemStyles = (index: number): string|Array<string> => {
-      return (index === props.selected) ?
-        [styles.item.selected, ...styles.item.default] :
-        styles.item.default
+    setup(props, { emit }) {    
+      const icons = {
+        indicator: 'circle'
+      }
+      const styles = {
+        default: [
+          'carousel_indicators',
+          'd-flex',
+          'justify-content-center',
+          'w-100'
+        ],
+        item: {
+          default: [
+            'carousel_indicators-item',
+            'h-100'
+          ],
+          selected: 'carousel_indicators-item--selected',
+        }
+      };
+
+      const indicatorItemStyles = (index: number): string|Array<string> => {
+        return (index === props.selected) ?
+          [styles.item.selected, ...styles.item.default] :
+          styles.item.default
+      }
+
+      const indicatorClick = (index: number): void => emit('set-selected-item', index);
+
+      const showIndicators = computed(() => props.quantity <= props.limit);
+
+      return {
+        // settings
+        icons,
+        styles,
+        // Computed methods
+        showIndicators,
+        // methods
+        indicatorItemStyles,
+        indicatorClick
+      }
     }
-
-    const indicatorClick = (index: number): void => emit('set-selected-item', index);
-
-    const showIndicators = computed(() => props.quantity <= props.limit);
-
-    return {
-      // settings
-      icons,
-      styles,
-      // Computed methods
-      showIndicators,
-      // methods
-      indicatorItemStyles,
-      indicatorClick
-    }
-  }
-})
+  });
 </script>
 
 <style lang="scss" scoped>

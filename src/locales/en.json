@@ -1,9 +1,6 @@
 {
   "app": {
     "title": "Vue 3 Simple App",
-    "screens": {
-      "home": "Home"
-    },
     "article": {
       "header": {
         "footer": {
@@ -26,9 +23,8 @@
       }
     }
   },
-  "activites": {
-    "next": {
-      "title": "Next Activitie" 
-    }
+  "home": {
+    "title": "Home",
+    "route": "/"
   }
 }

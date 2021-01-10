@@ -27,61 +27,61 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted } from 'vue';
-import { useStore } from 'vuex';
+  import { computed, defineComponent, onMounted } from 'vue';
+  import { useStore } from 'vuex';
 
-import NextActivitie from '@/components/activities/NextActivitie.vue';
-import AppArticle from '@/components/article/AppArticle.vue';
-import AppCarousel from '@/components/carousel/AppCarousel.vue';
-import AppCarouselItem from '@/components/carousel/AppCarouselItem.vue';
+  import NextActivitie from '@/components/activities/NextActivitie.vue';
+  import AppArticle from '@/components/article/AppArticle.vue';
+  import AppCarousel from '@/components/carousel/AppCarousel.vue';
+  import AppCarouselItem from '@/components/carousel/AppCarouselItem.vue';
 
-import Institutional from '@/entities/about/Institutional';
-import Activitie from '@/entities/activities/Activite';
-import WrittenInfo from '@/entities/article/WrittenInfo';
-import Photos from '@/entities/Photos';
+  import Institutional from '@/entities/about/Institutional';
+  import Activitie from '@/entities/activities/Activite';
+  import WrittenInfo from '@/entities/article/WrittenInfo';
+  import Photos from '@/entities/Photos';
 
-export default defineComponent({
-  name: "HomeScreen",
-  
-  components: {
-    AppCarousel,
-    AppCarouselItem,
-    AppArticle,
-    NextActivitie
-  },
+  export default defineComponent({
+    name: "HomeScreen",
+    
+    components: {
+      AppCarousel,
+      AppCarouselItem,
+      AppArticle,
+      NextActivitie
+    },
 
-  setup() {
-    const store = useStore();
+    setup() {
+      const store = useStore();
 
-    onMounted((): void => {
-      store.dispatch('activities/all');
-      store.dispatch('activities/nextActivitie');
-      store.dispatch('about/intitutionalContent');
-      store.dispatch('photos/all');
-    });
+      onMounted((): void => {
+        store.dispatch('activities/all');
+        store.dispatch('activities/nextActivitie');
+        store.dispatch('about/intitutionalContent');
+        store.dispatch('photos/all');
+      });
 
-    //computed
-    const nextActivitie = computed((): Activitie => store.getters['activities/nextActivitie']);
-    const photos = computed((): Photos[] => store.getters['photos/all']);
-    const institutionalContent = computed((): Institutional => store.getters['about/institutional']);
-    const hasInstitutionalContent = computed(() => institutionalContent.value !== null);
-    const writtenInfo = computed((): WrittenInfo|undefined => {
-      if (hasInstitutionalContent.value) {
-        return {
-          author: institutionalContent.value.author ?? '',
-          date: institutionalContent.value.written?.date ?? '',
-          time: institutionalContent.value.written?.time ?? '' ,
-        };
+      //computed
+      const nextActivitie = computed((): Activitie => store.getters['activities/nextActivitie']);
+      const photos = computed((): Photos[] => store.getters['photos/all']);
+      const institutionalContent = computed((): Institutional => store.getters['about/institutional']);
+      const hasInstitutionalContent = computed(() => institutionalContent.value !== null);
+      const writtenInfo = computed((): WrittenInfo|undefined => {
+        if (hasInstitutionalContent.value) {
+          return {
+            author: institutionalContent.value.author ?? '',
+            date: institutionalContent.value.written?.date ?? '',
+            time: institutionalContent.value.written?.time ?? '' ,
+          };
+        }
+      });
+
+      return {
+        nextActivitie,
+        photos,
+        institutionalContent,
+        hasInstitutionalContent,
+        writtenInfo
       }
-    });
-
-    return {
-      nextActivitie,
-      photos,
-      institutionalContent,
-      hasInstitutionalContent,
-      writtenInfo
     }
-  }
-});
+  });
 </script>

@@ -104,7 +104,7 @@
   @import "@/assets/scss/variables";
 
   .footer {
-    min-height: 10rem;
+    margin-top: auto;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     background-color: darken($dark-color, 15);
