@@ -18,6 +18,12 @@
         :to="templateTexts.home.route">
         {{ templateTexts.home.title }}
       </router-link>
+
+      <router-link
+        class="nav_item nav_item--active d-block"
+        :to="templateTexts.activities.route">
+        {{ templateTexts.activities.title }}
+      </router-link>
     </div>
   </nav>
 </template>
@@ -65,81 +71,83 @@
   $nav-border-color: darken($dark-color, 5%);
   $nav-transition-duraction: .25s;
 
-  .nav--show,
-  .nav--hide {
-    transition: width $nav-transition-duraction;
-  }
+  .nav {
+    &--show,
+    &--hide {
+      transition: width $nav-transition-duraction;
+    }
 
-  .nav--show > *,
-  .nav--hide > * {
-    transition: opacity $nav-transition-duraction;
-  }
+    &--show > *,
+    &--hide > * {
+      transition: opacity $nav-transition-duraction;
+    }
 
-  .nav--show {
-    width: 60% !important;
-  }
+    &--show {
+      width: 60% !important;
+    }
 
-  .nav--show > * {
-    opacity: 1;
-  }
+    &--show > * {
+      opacity: 1;
+    }
 
-  .nav--hide {
-    width: 0 !important;
-  }
+    &--hide {
+      width: 0 !important;
+    }
 
-  .nav--hide > * {
-    opacity: 0;
-  }
+    &--hide > * {
+      opacity: 0;
+    }
 
-  .nav_btn {
-    position: absolute;
-    top: 0.5rem;
-    z-index: 10000;
-    background-color: transparent;
-    color: $lightest-color;
-  }
+    &_btn {
+      position: absolute;
+      top: 0.5rem;
+      z-index: 10000;
+      background-color: transparent;
+      color: $lightest-color;
+    }
 
-  a.nav_btn {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-  }
+    &_btn {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
 
-  a.nav_btn:hover {
-    color: $lightest-color;
-  }
+    &_btn:hover {
+      color: $lightest-color;
+    }
 
-  .nav_btn--open {
-    right: 0.5rem;
-  }
+    &_btn--open {
+      right: 0.5rem;
+    }
 
-  .nav_btn--close {
-    top: 0.2rem;
-    right: 0;
-  }
+    &_btn--close {
+      top: 0;
+      right: 0;
+    }
 
-  .nav_container {
-    width: 0;
-    height: 100%;
-    padding: 2rem 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    background-color: $dark-color;
-    border-right: 1px solid $nav-border-color;
-  }
+    &_container {
+      width: 0;
+      height: 100%;
+      padding: 2.5rem 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      background-color: $dark-color;
+      border-right: 1px solid $nav-border-color;
+    }
 
-  .nav_item {
-    margin: 0 0.5rem 0.5rem;
-    padding: 0.5rem;
-    color: $lightest-color;
-    border-bottom: 1px solid lighten($nav-border-color, 30%);
-  }
+    &_item {
+      margin: 0 0.5rem 0.5rem;
+      padding: 0.5rem;
+      color: $lightest-color;
+      border-bottom: 1px solid lighten($nav-border-color, 30%);
+    }
 
-  .nav_item--active {
-    background-color: $lightest-color;
-    border-radius: 0.15rem;
-    color: darken($nav-border-color, 5%);
+    &_item--active {
+      background-color: $lightest-color;
+      border-radius: 0.25rem;
+      color: darken($nav-border-color, 5%);
+    }
   }
 </style>

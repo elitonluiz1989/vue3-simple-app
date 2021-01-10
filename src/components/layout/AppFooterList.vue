@@ -53,7 +53,7 @@
   .footer_list {
     margin: 0 auto 0.5rem;
     padding: 0;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     list-style: none;
 
     &-icon {

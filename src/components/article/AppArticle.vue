@@ -122,10 +122,11 @@
         background-color: $lightest-color;
 
         &-btn {
-          height: 1.6rem;
+          height: 3rem;
           line-height: 0;
           border: 1px solid $dark-color;
           border-radius: 0;
+          font-size: 1.6rem;
         }
       }
     }

@@ -65,7 +65,7 @@ export default defineComponent({
     margin-bottom: 1rem;
     background-color: $background-color;
     border-radius: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
 
     &_message {
       width: 100%;

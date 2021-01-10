@@ -67,7 +67,7 @@
 
     &_title {
       color: $secundary-color;
-      font-size: 1.5rem;
+      font-size: 2.2rem;
       text-shadow: 0 0 2px black;
     }
   }
