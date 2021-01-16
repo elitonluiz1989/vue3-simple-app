@@ -26,5 +26,11 @@
   "home": {
     "title": "Início",
     "route": "/"
+  },
+  "activities": {
+    "title": "Atividades",
+    "route": "/atividades",
+    "empty": "Não há atividades cadastradas.",
+    "next": "Próxima Atividade" 
   }
 }

@@ -1,6 +1,6 @@
 import { MutationTree } from 'vuex';
 
-import Activitie from '@/entities/activities/Activite';
+import Activitie from '@/entities/activities/Activitie';
 import ActivitiesState from '@/entities/activities/ActivitiesState';
 
 export const mutations: MutationTree<ActivitiesState> = {

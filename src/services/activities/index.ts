@@ -1,5 +1,5 @@
 import rawData from '@/data/activities.ts';
-import Activitie from '@/entities/activities/Activite';
+import Activitie from '@/entities/activities/Activitie';
 
 const activitiesHandleData = (data: any): Activitie => {
   const [hour, minutes] = data.time.split(':');

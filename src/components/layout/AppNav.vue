@@ -41,7 +41,11 @@
         home: {
           title: useLocalizedText('home.title'),
           route: useLocalizedText('home.route')
-        }
+        },
+        activities: {
+          title: useLocalizedText('activities.title'),
+          route: useLocalizedText('activities.route')
+        },
       };
       const showMenu = ref(false);
 

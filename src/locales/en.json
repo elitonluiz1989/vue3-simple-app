@@ -26,5 +26,11 @@
   "home": {
     "title": "Home",
     "route": "/"
+  },
+  "activities": {
+    "title": "Activities",
+    "route": "/activities",
+    "empty": "There's no activities recorded.",
+    "next": "Next Activitie"
   }
 }

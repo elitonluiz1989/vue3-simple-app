@@ -1,6 +1,6 @@
 <template>
   <div class="next-activitie d-flex flex-column">
-    <div class="next-activitie_message text-white">{{ useLocalizedText('activities.next.title') }}</div>
+    <div class="next-activitie_message text-white">{{ useLocalizedText('activities.next') }}</div>
 
     <router-link :to="route">
       <div class="next-activitie_content d-flex flex-fill">
