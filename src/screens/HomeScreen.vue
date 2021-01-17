@@ -1,5 +1,5 @@
 <template>
-  <div class="home container-fluid">
+  <div class="home container-fluid d-flex flex-column flex-fill">
     <next-activitie
       :location="nextActivitie.location"
       :description="nextActivitie.description"
@@ -23,6 +23,8 @@
       v-if="hasInstitutionalContent">
       {{ institutionalContent.content }}
     </app-article>
+
+    <div class="flex-fill bg-white"></div>
   </div>
 </template>
 
@@ -36,7 +38,7 @@
   import AppCarouselItem from '@/components/carousel/AppCarouselItem.vue';
 
   import Institutional from '@/entities/about/Institutional';
-  import Activitie from '@/entities/activities/Activite';
+  import Activitie from '@/entities/activities/Activitie';
   import WrittenInfo from '@/entities/article/WrittenInfo';
   import Photos from '@/entities/Photos';
 
