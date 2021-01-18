@@ -8,6 +8,7 @@ import { actions } from './actions';
 import { getters } from './getters';
 
 const state: ActivitiesState = {
+  page: 1,
   activities: [],
   nextActivitie: undefined
 }

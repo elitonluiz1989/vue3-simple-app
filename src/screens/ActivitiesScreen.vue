@@ -1,18 +1,25 @@
 <template>
   <div class="activities screen">
     <app-screen-title
-      class="activities_section"
       :title="templateTexts.title" />
 
-    <div class="container-fluid">
-      <div class="row justify-content-center" v-if="hasActivities">
+    <div class="container-fluid" v-if="hasActivities">
+      <div class="row justify-content-center">
         <div
-          class="col-10"
+          class="activities_item col-10"
           v-for="(activitie, key) in activities" :key="key">
           <activitie
             :location="activitie.location"
             :description="activitie.description"
             :calendar="activitie.calendar" />
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <button
+            class="btn btn-primary w-100"
+            @click="loadMoreActivities">{{ templateTexts.more }}</button>
         </div>
       </div>
     </div>
@@ -37,11 +44,15 @@
   export default defineComponent({
     name: "ActivitiesScreen",
     
-    components: { AppScreenTitle, Activitie: ActivitieComponent },
+    components: {
+      AppScreenTitle,
+      Activitie: ActivitieComponent
+    },
 
     setup() {
       const templateTexts = {
         title: useLocalizedText('activities.title'),
+        more: useLocalizedText('activities.more'),
         empty: useLocalizedText('activities.empty')
       };
       const store = useStore();
@@ -54,10 +65,17 @@
       const activities = computed((): Activitie[] => store.getters['activities/all']);
       const hasActivities = computed(() => activities.value !== undefined && activities.value.length > 0);
 
+      //methods
+      const loadMoreActivities = () => {
+        store.dispatch('activities/nextPage');
+        console.log(activities.value)
+      };
+
       return {
         templateTexts,
         activities,
-        hasActivities
+        hasActivities,
+        loadMoreActivities
       }
     }
   });
@@ -67,6 +85,19 @@
   @import "@/assets/scss/variables";
 
   .activities {
-    background-color: $lightest-color;
+    background-color: darken($lightest-color, 1);
+
+    &_item {
+      margin-bottom: 1.5rem;
+
+      &:last-child {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .view_title
+    .activitie {
+      background-color: $lightest-color;
+    }
   }
 </style>

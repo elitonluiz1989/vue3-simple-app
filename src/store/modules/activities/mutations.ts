@@ -10,5 +10,9 @@ export const mutations: MutationTree<ActivitiesState> = {
 
   setNextActivitie(state, payload: Activitie) {
     state.nextActivitie = payload;
+  },
+
+  setPage(state, payload: number) {
+    state.page = payload
   }
 }

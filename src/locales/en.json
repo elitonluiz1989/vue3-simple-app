@@ -31,6 +31,7 @@
     "title": "Activities",
     "route": "/activities",
     "empty": "There's no activities recorded.",
+    "more": "More activities",
     "next": "Next Activitie"
   }
 }
