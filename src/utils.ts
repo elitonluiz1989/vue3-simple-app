@@ -10,7 +10,7 @@ export function empty(value: any): boolean {
   let isEmpty = isUndefined(value) || isNull(value);
 
   if (!isEmpty) {
-    if (value.length === Function) {
+    if (value.length !== undefined) {
       isEmpty = value.length === 0;
     }
 
